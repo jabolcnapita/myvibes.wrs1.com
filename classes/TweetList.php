@@ -31,6 +31,7 @@ class TweetList {
   public function getTweetsFromDb($ida) {
     $this->tweetList = array();
     $this->connectToDb();
+    $ida =intval($ida);
 
     $statement = $this->pdo->query("SELECT * FROM tweet WHERE ida=$ida ORDER BY posted DESC");
     while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
